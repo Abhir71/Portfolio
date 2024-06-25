@@ -26,3 +26,15 @@ group by u.id
 order by photo_count desc
 limit 10;
 
+
+/* Most Liked pics*/
+select p.id,
+p.image_url,
+count(l.user_id) as like_count
+from photos p
+join 
+likes l on p.id = l.photo_id
+group by
+p.id
+order by 
+like_count desc limit 10;
